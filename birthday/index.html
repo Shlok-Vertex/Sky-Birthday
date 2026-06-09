@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Birthday Surprise | Premium Digital Gift</title>
+    <!-- Google Fonts & Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&family=Playfair+Display:wght@400;600;700;800;900&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Custom Cursor Elements -->
+    <div class="custom-cursor"></div>
+    <div class="cursor-trail-container"></div>
+
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress"></div>
+
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loader-container">
+            <div class="gift-box-animation">
+                <div class="gift-lid"></div>
+                <div class="gift-body"></div>
+                <div class="gift-ribbon"></div>
+                <div class="gift-bow"></div>
+                <div class="sparkle-loader">✨</div>
+            </div>
+            <p class="loading-text">Preparing Your Birthday Surprise...</p>
+            <div class="loading-dots">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main id="mainContent" style="display: none;">
+
+        <!-- Theme Toggle -->
+        <button class="theme-toggle" id="themeToggle">
+            <i class="fas fa-moon"></i>
+            <span class="theme-text">Dark</span>
+        </button>
+
+        <!-- Floating Music Player -->
+        <div class="music-player" id="musicPlayer">
+            <button class="music-btn" id="musicBtn">
+                <i class="fas fa-music"></i>
+            </button>
+            <div class="volume-control" id="volumeControl">
+                <i class="fas fa-volume-down"></i>
+                <input type="range" min="0" max="1" step="0.05" value="0.5" id="volumeSlider">
+                <i class="fas fa-volume-up"></i>
+            </div>
+            <div class="music-note">♪</div>
+        </div>
+
+        <!-- Hero Section -->
+        <section class="hero-section" id="hero">
+            <div class="hero-bg-gradient"></div>
+            <div class="floating-particles" id="floatingParticles"></div>
+            <div class="hero-content glass-card">
+                <div class="hero-badge">✨ Special Day ✨</div>
+                <h1 class="hero-title">Happy Birthday <span class="birthday-name">SKY</span> 🎂</h1>
+                <div class="typing-wrapper">
+                    <p class="typing-text" id="typingText"></p>
+                </div>
+                <p class="hero-subtitle">Celebrating the incredible journey of you ✨</p>
+                <button class="cta-btn" id="ctaBtn">
+                    <span>Start the Surprise</span>
+                    <i class="fas fa-gift"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- Countdown Timer -->
+        <section class="section-container" id="countdownSection">
+            <div class="section-header">
+                <i class="fas fa-hourglass-half"></i>
+                <h2 class="section-title">Birthday Countdown</h2>
+            </div>
+            <div class="countdown-wrapper">
+                <div class="countdown-card glass-card">
+                    <span class="countdown-number" id="days">00</span>
+                    <span class="countdown-label">Days</span>
+                    <i class="fas fa-sun"></i>
+                </div>
+                <div class="countdown-card glass-card">
+                    <span class="countdown-number" id="hours">00</span>
+                    <span class="countdown-label">Hours</span>
+                    <i class="fas fa-clock"></i>
+                </div>
+                <div class="countdown-card glass-card">
+                    <span class="countdown-number" id="minutes">00</span>
+                    <span class="countdown-label">Minutes</span>
+                    <i class="fas fa-stopwatch"></i>
+                </div>
+                <div class="countdown-card glass-card">
+                    <span class="countdown-number" id="seconds">00</span>
+                    <span class="countdown-label">Seconds</span>
+                    <i class="fas fa-hourglass-start"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- Birthday Letter Section -->
+        <section class="section-container" id="letterSection">
+            <div class="section-header">
+                <i class="fas fa-envelope-open-text"></i>
+                <h2 class="section-title">A Special Letter For You</h2>
+            </div>
+            <div class="envelope-wrapper">
+                <div class="envelope" id="envelope">
+                    <div class="envelope-flap"></div>
+                    <div class="envelope-body"></div>
+                    <div class="envelope-heart">❤️</div>
+                    <div class="envelope-stamp">💌</div>
+                </div>
+                <div class="letter-paper" id="letterPaper">
+                    <div class="letter-header">✨ To My Dearest ✨</div>
+                    <div class="typewriter-text" id="typewriterLetter"></div>
+                    <div class="letter-signature">With love, always 💕</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Photo Gallery -->
+        <section class="section-container">
+            <div class="section-header">
+                <i class="fas fa-images"></i>
+                <h2 class="section-title">Beautiful Memories</h2>
+            </div>
+            <div class="photo-gallery" id="photoGallery"></div>
+            <div class="lightbox" id="lightbox">
+                <span class="close-lightbox">&times;</span>
+                <img class="lightbox-img" id="lightboxImg">
+                <div class="lightbox-caption" id="lightboxCaption"></div>
+            </div>
+        </section>
+
+        <!-- Memory Timeline -->
+        <section class="section-container">
+            <div class="section-header">
+                <i class="fas fa-timeline"></i>
+                <h2 class="section-title">Our Journey Together</h2>
+            </div>
+            <div class="timeline" id="timeline"></div>
+        </section>
+
+        <!-- Friends & Family Wishes -->
+        <section class="section-container">
+            <div class="section-header">
+                <i class="fas fa-users"></i>
+                <h2 class="section-title">Wishes from Loved Ones</h2>
+            </div>
+            <div class="carousel-container">
+                <button class="carousel-btn prev"><i class="fas fa-chevron-left"></i></button>
+                <div class="carousel-track" id="carouselTrack"></div>
+                <button class="carousel-btn next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            <div class="carousel-dots" id="carouselDots"></div>
+        </section>
+
+        <!-- Interactive Gift Boxes -->
+        <section class="section-container">
+            <div class="section-header">
+                <i class="fas fa-gift"></i>
+                <h2 class="section-title">Open Your Gifts 🎁</h2>
+            </div>
+            <div class="gifts-grid" id="giftsGrid"></div>
+            <div id="giftModal" class="gift-modal">
+                <div class="gift-modal-content glass-card">
+                    <span class="close-modal">&times;</span>
+                    <div class="gift-modal-icon">🎁</div>
+                    <p id="giftMessage"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why You Are Special (Flip Cards) -->
+        <section class="section-container">
+            <div class="section-header">
+                <i class="fas fa-heart"></i>
+                <h2 class="section-title">Why You Are Special</h2>
+            </div>
+            <div class="flip-grid" id="flipGrid"></div>
+        </section>
+
+        <!-- Birthday Quiz -->
+        <section class="section-container">
+            <div class="section-header">
+                <i class="fas fa-question-circle"></i>
+                <h2 class="section-title">The Birthday Quiz</h2>
+            </div>
+            <div class="quiz-container" id="quizContainer"></div>
+            <div class="quiz-result" id="quizResult"></div>
+        </section>
+
+        <!-- Memory Wall -->
+        <section class="section-container">
+            <div class="section-header">
+                <i class="fas fa-sticky-note"></i>
+                <h2 class="section-title">Memory Wall</h2>
+            </div>
+            <div class="memory-wall" id="memoryWall"></div>
+            <div class="add-memory glass-card">
+                <i class="fas fa-pen"></i>
+                <input type="text" id="memoryInput" placeholder="Leave a birthday wish...">
+                <button id="addMemoryBtn">Add Note ✨</button>
+            </div>
+        </section>
+
+        <!-- Video Message -->
+        <section class="section-container">
+            <div class="section-header">
+                <i class="fas fa-video"></i>
+                <h2 class="section-title">Video Message</h2>
+            </div>
+            <div class="video-wrapper glass-card">
+                <div class="video-frame" id="videoFrame">
+                    <div class="video-placeholder" id="videoPlaceholder">
+                        <i class="fas fa-play-circle"></i>
+                        <p>Click to play birthday message</p>
+                    </div>
+                    <iframe id="birthdayVideo" width="100%" height="100%" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="display:none;"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- Scratch Card -->
+        <section class="section-container">
+            <div class="section-header">
+                <i class="fas fa-hand-peace"></i>
+                <h2 class="section-title">Scratch to Reveal Surprise</h2>
+            </div>
+            <div class="scratch-container">
+                <div class="scratch-card" id="scratchCard">
+                    <canvas id="scratchCanvas" width="350" height="180"></canvas>
+                    <div class="scratch-message" id="scratchMessage">🎁 Secret Message Inside 🎁</div>
+                </div>
+                <button id="resetScratchBtn" class="scratch-reset">Reset Scratch</button>
+            </div>
+        </section>
+
+        <!-- Interactive Birthday Cake -->
+        <section class="section-container">
+            <div class="section-header">
+                <i class="fas fa-birthday-cake"></i>
+                <h2 class="section-title">Birthday Cake</h2>
+            </div>
+            <div class="cake-container glass-card">
+                <div class="cake" id="birthdayCake">
+                    <div class="cake-base">
+                        <div class="cake-layer layer-1"></div>
+                        <div class="cake-layer layer-2"></div>
+                        <div class="cake-layer layer-3"></div>
+                    </div>
+                    <div class="cake-candles" id="candles"></div>
+                    <div class="cake-decoration">🎂</div>
+                </div>
+                <div class="cake-actions">
+                    <button id="blowCandleBtn" class="cake-btn"><i class="fas fa-wind"></i> Blow Candles</button>
+                    <button id="cutCakeBtn" class="cake-btn"><i class="fas fa-cut"></i> Cut Cake</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fireworks Celebration -->
+        <section class="section-container">
+            <button class="celebrate-btn" id="celebrateBtn">
+                <i class="fas fa-fire"></i>
+                <span>Celebrate Now 🎉</span>
+                <i class="fas fa-star"></i>
+            </button>
+        </section>
+
+        <!-- Final Thank You Section -->
+        <section class="section-container final-thanks">
+            <div class="thanks-content">
+                <i class="fas fa-heart heart-beat"></i>
+                <h2>Thank You For Being Such An Amazing Person ❤️</h2>
+                <p>Wishing You Endless Happiness, Success, Good Health, and Beautiful Memories Ahead.</p>
+                <div class="floating-hearts" id="floatingHearts"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Audio Elements -->
+    <audio id="bgMusic" loop preload="auto">
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="celebrateSound" preload="auto">
+        <source src="https://www.soundjay.com/misc/sounds/bell-ringing-05.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="blowSound" preload="auto">
+        <source src="https://www.soundjay.com/misc/sounds/wind-soft-01.mp3" type="audio/mpeg">
+    </audio>
+
+    <canvas id="fireworksCanvas" style="position:fixed; top:0; left:0; pointer-events:none; z-index:9999;"></canvas>
+    <canvas id="confettiCanvas" style="position:fixed; top:0; left:0; pointer-events:none; z-index:9998;"></canvas>
+
+    <script src="script.js"></script>
+</body>
+</html>
